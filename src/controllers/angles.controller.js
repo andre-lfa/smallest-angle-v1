@@ -5,6 +5,12 @@ const db = require("../config/database");
 exports.createAngle = async (req, res) => {
   const { hour, minute } = req.params;
 
+  if(hour > 24 || minute > 60) {
+    res.status(400).send({
+      message: "The API only accept value between 1-24 for hours and 0-60 for minutes!"
+    })
+  } 
+
   const angle = calculateSmallestAngle(hour, minute);
 
   const { rows } = await db.query(
@@ -18,9 +24,12 @@ exports.createAngle = async (req, res) => {
 };
 
 function calculateSmallestAngle(hour, minute = 0) {
-  
-  var calculatedAngle = (60 * hour - 11 * minute) / 2;
-  calculatedAngle < 180 ? calculatedAngle : calculatedAngle = calculatedAngle - 180; 
+
+  let absoluteHour = Math.abs(hour);
+  let absoluteMinute = Math.abs(minute);
+
+  var calculatedAngle = (60 * absoluteHour - 11 * absoluteMinute) / 2;
+  calculatedAngle > 180 ? calculatedAngle -= 360 : calculatedAngle;
 
   return Math.abs(calculatedAngle);
 }
