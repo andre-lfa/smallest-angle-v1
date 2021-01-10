@@ -13,7 +13,7 @@ O objetivo desse desafio é criar uma API com um endpoint para calcular o ângul
  - [x] O movimento dos ponteiros ocorrem de minuto em minuto; 
  - [x] Construir uma base Postgresql para armazenar as solicitações (id, hour, minute, angle, date);  
  - [x] O resultado não deverá ser recalculado caso a mesma consulta já tenha sido executada;  
- - [ ] Deve ser retornado sempre o valor arredondado para o menor ângulo.
+ - [x] Deve ser retornado sempre o valor arredondado para o menor ângulo.
 
 
 ## Diferenciais

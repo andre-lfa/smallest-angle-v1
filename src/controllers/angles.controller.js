@@ -31,5 +31,7 @@ function calculateSmallestAngle(hour, minute) {
   var calculatedAngle = (60 * absoluteHour - 11 * absoluteMinute) / 2;
   calculatedAngle > 180 ? calculatedAngle -= 360 : calculatedAngle;
 
-  return Math.abs(calculatedAngle);
+  let absoluteValue = Math.abs(calculatedAngle);
+
+  return Math.round(absoluteValue);
 }

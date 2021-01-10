@@ -64,3 +64,11 @@ describe("Test receiving bigger minutes", () => {
         expect(response.body.message).toBe("The API only accept value between 1-24 for hours and 0-60 for minutes!");
     });
 });
+
+describe("Test with float values for angles", () => {
+  test("It should response with the rounded smallest angle", async () => {
+      const response = await request(app).post(`/v1/rest/clock/9/31`);
+      expect(response.statusCode).toBe(201);
+      expect(response.body.angle).toBe(100);
+  });
+});
