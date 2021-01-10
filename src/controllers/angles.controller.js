@@ -3,7 +3,7 @@ const db = require("../config/database");
 // ==> Método responsável por criar um novo 'Calculo de ângulo':
 
 exports.createAngle = async (req, res) => {
-  const { hour, minute } = req.params;
+  const { hour, minute=0 } = req.params;
 
   if(hour > 24 || minute > 60) {
     res.status(400).send({
@@ -14,7 +14,7 @@ exports.createAngle = async (req, res) => {
   const angle = calculateSmallestAngle(hour, minute);
 
   const { rows } = await db.query(
-    "INSERT INTO calculatedangles (hour, minute, angle) VALUES ($1, $2, $3)",
+    "INSERT INTO calculatedangles (hour, minute, angle) SELECT $1, $2, $3 WHERE NOT EXISTS (SELECT 1 FROM calculatedangles WHERE hour=$1 AND minute=$2)",
     [hour, minute, angle]
   );
 
@@ -23,7 +23,7 @@ exports.createAngle = async (req, res) => {
   });
 };
 
-function calculateSmallestAngle(hour, minute = 0) {
+function calculateSmallestAngle(hour, minute) {
 
   let absoluteHour = Math.abs(hour);
   let absoluteMinute = Math.abs(minute);

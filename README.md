@@ -3,14 +3,6 @@
 O objetivo desse desafio é criar uma API com um endpoint para calcular o ângulo entre os ponteiros do relógio. O endpoint deve receber dois parâmetros, sendo o primeiro ***:hour*** e o segundo ***:minute*** e seja capaz de devolver o ângulo entre os dois ponteiros.
 
 
-## Requisitos
-
- - O movimento dos ponteiros ocorrem de minuto em minuto; 
- - Construir uma base Postgresql para armazenar as solicitações (id, hour, minute,    angle, date);  
- - O resultado não deverá ser recalculado caso a mesma consulta já tenha sido executada;  
- - Deve ser retornado sempre o valor arredondado para o menor ângulo.
-
-
 ## Requisitos técnicos
 
  - [ ] Compartilhar em um diretório sql o dump da base com registros já
@@ -18,6 +10,11 @@ O objetivo desse desafio é criar uma API com um endpoint para calcular o ângul
  - [x] A interface de comunicação é REST;
  - [x] Conter documentação detalhada de como utilizar e rodar o projeto;
  - [x] O Content-Type de retorno deve ser JSON.
+ - [x] O movimento dos ponteiros ocorrem de minuto em minuto; 
+ - [x] Construir uma base Postgresql para armazenar as solicitações (id, hour, minute, angle, date);  
+ - [x] O resultado não deverá ser recalculado caso a mesma consulta já tenha sido executada;  
+ - [ ] Deve ser retornado sempre o valor arredondado para o menor ângulo.
+
 
 ## Diferenciais
 
