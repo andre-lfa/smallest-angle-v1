@@ -5,7 +5,7 @@ O objetivo desse desafio é criar uma API com um endpoint para calcular o ângul
 
 ## Requisitos técnicos
 
- - [ ] Compartilhar em um diretório sql o dump da base com registros já
+ - [x] Compartilhar em um diretório sql o dump da base com registros já
        gerados pelo software;
  - [x] A interface de comunicação é REST;
  - [x] Conter documentação detalhada de como utilizar e rodar o projeto;
