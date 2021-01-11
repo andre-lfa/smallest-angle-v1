@@ -18,7 +18,7 @@ exports.createAngle = async (req, res) => {
     [hour, minute, angle]
   );
 
-  res.status(201).send({
+  res.status(200).send({
     angle: angle
   });
 };
